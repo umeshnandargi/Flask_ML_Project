@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- Add icon library -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <title>Student Depr</title>
+        <link rel = "stylesheet" href ="{{ url_for('static', filename= 'css/main.css')}}">
+    </head>
+<body>
+    <p align = "left"><a href="/"><button class="btn"><i class="fa fa-home"></i>Home</button></a></p>
+    <h1>Student Depression Classifier<h1>
+    <br>
+    <form action="/classifier" method = 'post'>
+        <label for="age">Enter Age</label>
+        <input id = "age" type="text" name = 'age'>
+        <br>
+        <label for="cgpa">CGPA</label>
+        <input id = "cgpa" type="text" name = 'cgpa'>
+        <br>
+        <input type="submit" value = "Submit" id="submit">
+    </form>
+    <div><a href="/" class="Home">Home</a></div>
+</body>    
+</html>
