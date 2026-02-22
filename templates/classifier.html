@@ -4,22 +4,86 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- Add icon library -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <title>Student Depr</title>
+        <title>Student Depression</title>
         <link rel = "stylesheet" href ="{{ url_for('static', filename= 'css/main.css')}}">
     </head>
 <body>
     <p align = "left"><a href="/"><button class="btn"><i class="fa fa-home"></i>Home</button></a></p>
     <h1>Student Depression Classifier<h1>
     <br>
+    <div class="container">
     <form action="/classifier" method = 'post'>
-        <label for="age">Enter Age</label>
-        <input id = "age" type="text" name = 'age'>
+        {% for message in get_flashed_messages() %}
+            {% if flash_message %}
+                <script>
+                alert({{ message | tojson }});
+                </script>
+            {% endif %}
+        {% endfor %}
+        <label for="age">Age</label>
+        <input id = "age" type="number" name = 'age' step="1">
         <br>
+        
+        <div class="gender">
+            <label>Gender :</label>
+            <input type="radio" id="male" name="gender" value="Male" required>
+            <label for="male">Male</label>
+            <input type="radio" id="female" name="gender" value="Female">
+            <label for="female">Female</label>
+        <br>
+        </div>
+        
+        <div calss = "department">
+            <label for="department">Department</label>
+            <select class="department" id="department" name="department" required>
+                <option value="" disabled selected>Select Department</option>
+                <option value="Science">Science</option>
+                <option value="Engineering">Engineering</option>
+                <option value="Medical">Medical</option>
+                <option value="Arts">Arts</option>
+                <option value="Business">Business</option>
+            </select>
+            <br>
+
+        </div>
+
         <label for="cgpa">CGPA</label>
-        <input id = "cgpa" type="text" name = 'cgpa'>
+        <input id = "cgpa" type="number" name = 'cgpa' step="0.01">
         <br>
-        <input type="submit" value = "Submit" id="submit">
+
+        <label for="sleep_duration">Sleep Duration</label>
+        <input id = "sleep_duration" type="number" name = 'sleep_duration' step="0.1">
+        <br>
+
+        <label for="study_hours">Study Hours</label>
+        <input id = "study_hours" type="number" name = 'study_hours' step="0.1">
+        <br>
+
+        <label for="social_media_hours">Social Media Hours</label>
+        <input id = "social_media_hours" type="number" name = 'social_media_hours' step="0.1">
+        <br>
+
+        <label for="physical_activity">Physical Activity</label>
+        <input id = "physical_activity" type="number" name = 'physical_activity' step="0.1">
+        <br>
+
+        <label for="stress_level">Stress Level</label>
+        <input id = "stress_level" type="number" name = 'stress_level'>
+        <br>
+
+        <input type="submit" value = "submit" id="submit">
     </form>
-    <div><a href="/" class="Home">Home</a></div>
-</body>    
+    </div>
+</body> 
+<footer class="site-footer">
+    <div class="footer-content">
+        <p class="disclaimer">
+            <strong>Disclaimer:</strong>
+            This tool uses a machine learning model to analyze responses and estimate patterns that may be associated with signs of depression. The results provided are <b>not a medical diagnosis</b>, nor are they a substitute for professional psychological or medical advice.
+            The prediction is based solely on the data entered and may not be accurate or complete. Individual mental health is complex and cannot be reliably determined by an automated system.
+            If you are feeling distressed, overwhelmed, or concerned about your mental well-being, please consider speaking with a qualified mental health professional, counselor, or trusted person.
+            This tool is intended only for educational and awareness purposes. The developers are not responsible for decisions made based on the output of this system.
+        </p>
+    </div>
+</footer>
 </html>

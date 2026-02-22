@@ -1,0 +1,11 @@
+departments:
+  Science    : 0.0
+  Engineering: 1.0
+  Medical    : 2.0
+  Arts       : 3.0
+  Business   : 4.0
+
+genders:
+  Female: 0.0
+  Male  : 1.0
+  

@@ -1,0 +1,21 @@
+Naming Convention :
+
+| Thing     | Case          |
+| --------- | ------------- |
+| Folders   | snake_case    |
+| Files     | snake_case.py |
+| Variables | snake_case    |
+| Private   | _snake_case   |
+| Constants | UPPER_CASE    |
+| Functions | snake_case    |
+| Classes   | PascalCase    |
+
+html attributes
+
+name = backend, id = frontend, value = data
+| Attribute | Used by | Purpose               |
+| --------- | ------- | --------------------- |
+| `name`    | Flask   | Key in `request.form` |
+| `id`      | Browser | Link label, CSS, JS   |
+| `value`   | Flask   | Actual data sent      |
+
