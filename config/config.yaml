@@ -1,5 +1,5 @@
 model_name        : "depression_model"
-base_url          : "http://127.0.0.1"
+base_url          : "http://localhost"
 port              : 3000
 api_endpoint      : "api"
 secret_key        : "umeshnandargi"

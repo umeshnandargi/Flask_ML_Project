@@ -1,21 +1,24 @@
 from flask import Flask , render_template, request, jsonify , flash
 from ml_models.model import Model
 from config.configuraton import Config
-from utils.helper_functions import *
+from utils.helper_functions import (
+    load_saved_model, 
+    get_prediction, 
+    url_builder )
 import requests
 import json
 import sys
 
 app = Flask(__name__)
-cfg = Config() 
-mappings = cfg.get_config(config_name="mappings.yaml")
-config = cfg.get_config(config_name="config.yaml")
-DISCLAIMER_MESSAGE = config["disclaimer_message"]
+cfg = Config()
+mappings = cfg.get_config(config_name='mappings.yaml')
+config = cfg.get_config(config_name='config.yaml')
+DISCLAIMER_MESSAGE = config['disclaimer_message']
 depts   : dict  = mappings['departments']
 genders : dict = mappings['genders']
 
 model = Model(9,12,12,24,16,2)
-model = load_saved_model(model=model, model_name=config["model_name"])
+model = load_saved_model(model=model, model_name=config['model_name'])
 
 app.secret_key = config['secret_key']
 @app.route('/')
@@ -85,5 +88,5 @@ if __name__ == "__main__":
     if config['debug'] :
         print("debug mode is on!!! Turn it off or comment this section")
         sys.exit()
-    app.run(port=config['port'], debug=config['debug'])
+    app.run(host="0.0.0.0", port=config['port'],  debug=config['debug'])
     
