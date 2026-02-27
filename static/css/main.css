@@ -69,6 +69,16 @@ input{
     font-size: 1.3em;
 }
 
+input::placeholder {
+    color: #999;
+    transition: opacity 0.2s ease;
+    font-size: 0.5em;
+}
+
+input:focus::placeholder {
+    opacity: 0;
+}
+
 input:focus{
     border:solid 5px #00FFCE;
 }
