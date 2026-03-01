@@ -19,3 +19,27 @@ name = backend, id = frontend, value = data
 | `id`      | Browser | Link label, CSS, JS   |
 | `value`   | Flask   | Actual data sent      |
 
+
+Docker - useful commands 
+
+build an image : docker build -t <IMAGE NAME> . 
+spin a container : docker run -p <your pc'S port>:<docker'S port> <IMAGE NAME>
+see what's using space : docker system df
+Remove EVERYTHING unused : docker system prune -a --volumes 
+view images : docker images
+view containers : docker container ls
+push image to dockerhub : 
+    docker login
+    docker push <IMAGE NAME>:<tag> 
+
+
+
+
+wsl commands 
+WSL Management (Run in PowerShell)
+
+wsl -l -v              # List installed distros
+wsl --shutdown         # Stop all WSL instances
+wsl --status           # Show WSL info
+wsl --update           # Update WSL
+wsl --unregister Ubuntu  # Delete a distro
