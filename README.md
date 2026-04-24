@@ -87,7 +87,7 @@ docker build -t student-depression-classifier .
 2. **Run the container**
 
 ```bash
-docker run -p <port from config>:<port from config> student-depression-classifier
+docker run -p HOST_PORT(from config):CONTAINER_PORT(from Dockerfile) student-depression-classifier
 ```
 
 Then visit `http://localhost:<port from config>` in your browser.
